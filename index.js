@@ -56,6 +56,14 @@ const addManager = () => {
             }
         }
     ])
+};
+
+const addEmployee = () => {
+    return inquirer.prompt ([
+        {
+            
+        }
+    ])
 }
 
 
