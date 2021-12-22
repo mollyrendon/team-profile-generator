@@ -147,6 +147,18 @@ const addEmployee = () => {
             }
         },
     ])
-}
+};
+
+/*Write File function:  This function takes the employee data and writes it into the index.html file.*/
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log('The HTML page for your team profile is ready!  Check it out in the index.html file')
+        }
+    })
+};
 
 
