@@ -4,6 +4,8 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
+const teamArray = [];
+
 const addManager = () => {
     return inquirer.prompt ([
         {
@@ -59,6 +61,13 @@ const addManager = () => {
             }
         }
     ])
+    .then(managerInput => {
+        const { name, id, email, number } = managerInput;
+        const manager = new Manager (name, id, email, number);
+
+        teamArray.push(manager);
+        console.log(manager);
+    })
 };
 
 const addEmployee = () => {
