@@ -2,7 +2,7 @@
 
 # Purpose
 
-An application designed to generate a team profile page from commands in terminal using node.js.
+An application designed to generate a team profile page of various employees from commands in terminal using node.js.
 
 # Built With
 

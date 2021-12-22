@@ -6,6 +6,7 @@ const Intern = require('./lib/intern');
 
 const teamArray = [];
 
+/*Prompt questions for adding a Manager*/
 const addManager = () => {
     return inquirer.prompt ([
         {
@@ -61,6 +62,7 @@ const addManager = () => {
             }
         }
     ])
+    /*Manager Object:  Here I create a new manager object with the properties of name, id, email, and number.  Then I push that object onto the teamArray and then it prints out the manager in the console log.*/
     .then(managerInput => {
         const { name, id, email, number } = managerInput;
         const manager = new Manager (name, id, email, number);
@@ -70,6 +72,7 @@ const addManager = () => {
     })
 };
 
+/*Prompt questions for adding Employee*/
 const addEmployee = () => {
     return inquirer.prompt ([
         {
