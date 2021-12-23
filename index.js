@@ -4,6 +4,8 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
+const generateHTML = require('./src/generateHTML.js');
+
 const teamArray = [];
 
 /*Prompt questions for adding a Manager*/
@@ -74,6 +76,11 @@ const addManager = () => {
 
 /*Prompt questions for adding Employee*/
 const addEmployee = () => {
+    console.log(`
+    ================
+    Add New Employees to your Team
+    ================
+    `);
     return inquirer.prompt ([
         {
             type: 'list',
@@ -146,7 +153,33 @@ const addEmployee = () => {
                 }
             }
         },
+        {
+            type: 'confirm',
+            name: 'confirmAddEmployee',
+            message: 'Would you like to add another team memeber?',
+            default: false
+        }
     ])
+    .then(employeeData => {
+        let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
+        let employee;
+
+        if (role === 'Engineer') {
+            employee = new Engineer (name, id, email, github);
+
+            console.log(employee);
+        } else if (role === 'Intern') {
+            employee =new Intern (name, id, email, school);
+            console.log(employee);
+        }
+        teamArray.push(employee);
+
+        if(confirmAddEmployee) {
+            return addEmployee(teamArray);
+        } else {
+            return teamArray;
+        }
+    })
 };
 
 /*Write File function:  This function takes the employee data and writes it into the index.html file.*/
