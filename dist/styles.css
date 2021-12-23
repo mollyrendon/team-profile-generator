@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", sans-serif;
+}
+
+.card-header {
+  background-color: rgb(102, 153, 255);
+}
+
+.card-body {
+  background-color: rgb(255, 255, 255);
+}
+
+.container {
+  margin: 100px auto;
+  justify-content: space-evenly;
+  display: flex;
+}

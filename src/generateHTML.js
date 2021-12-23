@@ -91,6 +91,7 @@ const generateTeamPage = function (employeeCards)  {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Profile</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
@@ -99,7 +100,7 @@ const generateTeamPage = function (employeeCards)  {
             </nav>
         </header>
         <main>
-            <div class="ccontainer">
+            <div class="container">
                 <div class="row justify-content-center" id="team-cards">
                 ${employeeCards}
             </div>
