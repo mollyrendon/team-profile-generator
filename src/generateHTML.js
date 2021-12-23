@@ -1,4 +1,4 @@
-const generateManager = (data) => {
+const generateManager = function (manager) {
     return `
     <div class= "col-4 mt-4">
         <div class= "card h-100">
@@ -16,7 +16,7 @@ const generateManager = (data) => {
     `;
 }
 
-const generateEngineer = (data) => {
+const generateEngineer = function (engineer)  {
     return `
     <div class= "col-4 mt-4">
         <div class= "card h-100">
@@ -34,7 +34,7 @@ const generateEngineer = (data) => {
     `
 }
 
-const generateIntern = (data) => {
+const generateIntern = function (intern)  {
     return `
     <div class= "col-4 mt-4">
         <div class= "card h-100">
@@ -52,22 +52,67 @@ const generateIntern = (data) => {
     `
 };
 
+generateHTML = (data) => {
+    pageArray = [];
+
+    for (let i = 0; i < data.length; i++) {
+        const employee = data[i];
+        const role = employee.getRole();
+
+        if (role === 'Manager') {
+            const managerCard = generateManager(employee);
+            pageArray.push(managerCard);
+        }
+
+        if (role === 'Engineer') {
+            const engineerCard = generateEngineer(employee);
+            pageArray.push(engineerCard);
+        }
+
+        if (role === 'Intern') {
+            const internCard = generateIntern(employee);
+            pageArray.push(internCard);
+        }
+    }
+
+    const employeeCards = pageArray.join('')
+
+    const generateTeam = generateTeamPage(employeeCards);
+    return generateTeam;
+}
 
 
-
-
-/*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+const generateTeamPage = function (employeeCards)  {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Team Profile</title>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar" id="navbar">
+                <span class="navbar-brand mb-0 h1 2-100 text-center" id="navbar-text">Team Profile</span>
+            </nav>
+        </header>
+        <main>
+            <div class="ccontainer">
+                <div class="row justify-content-center" id="team-cards">
+                ${employeeCards}
+            </div>
+        </main>    
 </body>
-</html> */
+</html>
+    
+    `;
+}
+
+
+
+
 
 
 module.exports = generateHTML;
