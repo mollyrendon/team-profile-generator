@@ -64,7 +64,10 @@ const addManager = () => {
             }
         }
     ])
-    /*Manager Object:  Here I create a new manager object with the properties of name, id, email, and number.  Then I push that object onto the teamArray and then it prints out the manager in the console log.*/
+    /*Manager Object:  
+    This is the new manager object with the properties of name, 
+    id, email, and number.         Then push that object onto the teamArray
+    and then it prints out the manager in the console log.*/
     .then(managerInput => {
         const { name, id, email, number } = managerInput;
         const manager = new Manager (name, id, email, number);
@@ -160,6 +163,13 @@ const addEmployee = () => {
             default: false
         }
     ])
+    /*Array of employees:
+    This code creates an array of employees and then loops through the list and
+    creates a new employee for each role.  
+    If the role is engineer or intern then it will create a new instance of that class.
+    It then checks to see if addEmployee is true or false and then adds another 
+    employee to the teamArry or return as is.  
+    */
     .then(employeeData => {
         let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
         let employee;
@@ -182,7 +192,12 @@ const addEmployee = () => {
     })
 };
 
-/*Write File function:  This function takes the employee data and writes it into the index.html file.*/
+/*Write File function:  
+This writeFile function takes the employee data 
+and writes it into the index.html file, if there isn't an error it 
+prints out the console.log message below.  
+*/
+
 const writeFile = data => {
     fs.writeFile('./dist/index.html', data, err => {
         if (err) {
@@ -193,6 +208,11 @@ const writeFile = data => {
         }
     })
 };
+
+/*
+
+
+*/
 
 addManager()
     .then(addEmployee)
