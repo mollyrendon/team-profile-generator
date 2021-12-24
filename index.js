@@ -4,8 +4,10 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
+/*Pathway to the generated page*/
 const generateHTML = require('./src/generateHTML.js');
 
+/*Team Array*/
 const teamArray = [];
 
 /*Prompt questions for adding a Manager*/
@@ -65,9 +67,10 @@ const addManager = () => {
         }
     ])
     /*Manager Object:  
-    This is the new manager object with the properties of name, 
-    id, email, and number.         Then push that object onto the teamArray
-    and then it prints out the manager in the console log.*/
+    This creates a new manager object.  The constructor take the name, id, email,
+    and number of the manager as parameter.  It then pushes that manager onto
+    an array called teamArray.
+    */
     .then(managerInput => {
         const { name, id, email, number } = managerInput;
         const manager = new Manager (name, id, email, number);
@@ -168,7 +171,7 @@ const addEmployee = () => {
     creates a new employee for each role.  
     If the role is engineer or intern then it will create a new instance of that class.
     It then checks to see if addEmployee is true or false and then adds another 
-    employee to the teamArry or return as is.  
+    employee to the teamArry if true or return as is if false.  
     */
     .then(employeeData => {
         let { name, id, email, role, github, school, confirmAddEmployee } = employeeData;
@@ -209,8 +212,12 @@ const writeFile = data => {
     })
 };
 
-/*
-
+/*Add Manager Function
+This function takes in a string of text and returns an employee objects with 
+that text as its name.  The "then" method is used to call other functions after this one has
+been completed successfully.  Then the generateHTML function is called which generates
+HTML code for a list of employees on a team page.  After taht writeFile() is called which writes
+out the generated HTML file.  If there is an error a console.log error message will appear.  
 
 */
 
