@@ -131,7 +131,6 @@ const generateTeamPage = function (employeeCards)  {
 
 
 
-
 /*This will export the generateHTML page data to the index page*/
 
 module.exports = generateHTML;
