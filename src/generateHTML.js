@@ -1,3 +1,6 @@
+/*Generate Manager Function
+This generateManager function will create the manager card on the html page.
+*/
 const generateManager = function (manager) {
     return `
     <div class= "col-4 mt-4">
@@ -16,6 +19,9 @@ const generateManager = function (manager) {
     `;
 }
 
+/*Generate Engineer Function
+This generateEngineer function will create the engineer card on the html page.
+*/
 const generateEngineer = function (engineer)  {
     return `
     <div class= "col-4 mt-4">
@@ -34,6 +40,9 @@ const generateEngineer = function (engineer)  {
     `
 }
 
+/*Generate Intern Function
+This generateIntern function will create the intern card on the html page.
+*/
 const generateIntern = function (intern)  {
     return `
     <div class= "col-4 mt-4">
@@ -51,6 +60,13 @@ const generateIntern = function (intern)  {
     </div>
     `
 };
+
+/* Generate HTML Function
+The generateHTML function runs through the data and creates an
+array of cards with the employee's role on it.  It then joins the cards
+together to create on big string that is then used to generate a page
+for the team.
+*/
 
 generateHTML = (data) => {
     pageArray = [];
@@ -81,7 +97,9 @@ generateHTML = (data) => {
     return generateTeam;
 }
 
-
+/*Generate Team Page Function
+The generateTeamPage function generates the HTML page with the employeeCards data.
+*/
 const generateTeamPage = function (employeeCards)  {
     return `
     <!DOCTYPE html>
@@ -114,6 +132,6 @@ const generateTeamPage = function (employeeCards)  {
 
 
 
-
+/*This will export the generateHTML page data to the index page*/
 
 module.exports = generateHTML;
